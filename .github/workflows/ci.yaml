@@ -33,13 +33,19 @@ jobs:
           name: code-coverage-report
           path: target/site/jacoco/
 
-      - name: Display Test Results
-        uses: dorny/test-reporter@v1
-        if: always()
-        with:
-          name: Test Results
-          path: target/surefire-reports/*.xml
+      # - name: Display Test Results
+      #   uses: dorny/test-reporter@v1
+      #   if: always()
+      #   with:
+      #     name: Test Results
+      #     path: target/surefire-reports/*.xml
+      #     reporter: junit
 
+      - name: Test Summary
+        uses: test-summary/action@v2
+        with:
+          paths: "target/surefire-reports/*.xml"
+        if: always()
       # - name: Generate Coverage Badge
       #   uses: coderabbi/jacoco-badge-generator@v1
       #   with:
@@ -55,7 +61,7 @@ jobs:
           # a report. The only coverage results format supported is the
           # JaCoCo XML schema.
 
-          coverage_results_path: target/site/jacoco/jacoco.xml
+          coverage_results_path: target/surefire-reports/*.xml
           # Optionally specify the level of output detail for the test results.
           # May be one of: `none`, `Minimal`, `normal`, `detailed`, `diagnostic`
           # The default is `normal`.
