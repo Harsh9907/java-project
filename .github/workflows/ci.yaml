@@ -32,3 +32,17 @@ jobs:
         with:
           name: code-coverage-report
           path: target/site/jacoco/
+      
+      - name: Display Test Results
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Test Results
+          path: target/surefire-reports/*.xml
+          reporter: junit
+
+      - name: Generate Coverage Badge
+        uses: coderabbi/jacoco-badge-generator@v1
+        with:
+          jacoco-path: target/site/jacoco/jacoco.xml
+          readme-path: README.md
