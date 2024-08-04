@@ -40,6 +40,7 @@ jobs:
           name: Test Results
           path: target/surefire-reports/*.xml
 
+<<<<<<< HEAD
       # - name: Generate Coverage Badge
       #   uses: coderabbi/jacoco-badge-generator@v1
       #   with:
@@ -96,3 +97,6 @@ jobs:
           # characters that is not accepted by Github REST and GraphQL APIs
 
           publish_only_summary: # optional
+=======
+      
+>>>>>>> 9034425b030eac522f4f0bdf118a8fa60c2a4386
