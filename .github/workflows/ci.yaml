@@ -44,7 +44,7 @@ jobs:
       - name: Test Summary
         uses: test-summary/action@v2
         with:
-          paths: "target/site/jacoco//*.xml"
+          paths: "target/surefire-reports/*.xml"
         if: always()
       # - name: Generate Coverage Badge
       #   uses: coderabbi/jacoco-badge-generator@v1
