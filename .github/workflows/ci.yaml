@@ -102,3 +102,4 @@ jobs:
           # characters that is not accepted by Github REST and GraphQL APIs
 
           publish_only_summary: # optional
+        if: always()
