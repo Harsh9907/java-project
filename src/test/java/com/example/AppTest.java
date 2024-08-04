@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import com.example.App;
+
 public class AppTest {
     @Test
     public void testAdd() {
