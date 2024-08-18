@@ -21,6 +21,10 @@ jobs:
       - name: Code Coverage
         run: mvn jacoco:report
 
+      - name: listing directories
+        run: | 
+          ls -lR
+          
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
         with:
@@ -52,16 +56,16 @@ jobs:
       #     jacoco-path: target/site/jacoco/jacoco.xml
       #     readme-path: README.md
 
-      - name: jacoco-reporter
+      # - name: jacoco-reporter
         # You may pin to the exact commit or the version.
         # uses: PavanMudigonda/jacoco-reporter@4fc6bf270fe893e8dda5467e432253a6961345b8
-        uses: PavanMudigonda/jacoco-reporter@v5.0
-        with:
+        # uses: PavanMudigonda/jacoco-reporter@v5.0
+        # with:
           # Path to the JaCoCo coverage results file which will be used to generate
           # a report. The only coverage results format supported is the
           # JaCoCo XML schema.
 
-          coverage_results_path: target/site/jacoco/jacoco.xml
+          # coverage_results_path: target/site/jacoco/jacoco.xml
           # Optionally specify the level of output detail for the test results.
           # May be one of: `none`, `Minimal`, `normal`, `detailed`, `diagnostic`
           # The default is `normal`.
@@ -70,7 +74,7 @@ jobs:
           # GITHUB_TOKEN to authenticate against API calls to attach
           # report to Workflow Run.
 
-          github_token: ${{secrets.TOKEN_JACOCO}}
+          # github_token: ${{secrets.TOKEN_JACOCO}}
           # If true, will skip attaching the Tests Result report to
           # the Workflow Run using a Check Run.  Useful if you just
           # want to produce a Gist-based report via the `gist_name`
@@ -101,5 +105,5 @@ jobs:
           # Workflow Run using a Check Run. Useful if your report has 65k
           # characters that is not accepted by Github REST and GraphQL APIs
 
-          publish_only_summary: # optional
-        if: always()
+        #   publish_only_summary: # optional
+        # if: always()
